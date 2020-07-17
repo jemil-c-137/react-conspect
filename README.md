@@ -5,7 +5,7 @@ My own and awful conspect on react. Do not read this if you want to keep your me
 
 в React нельзя напрямую обращаться к DOM, вешать события и тд. Для этого есть VirtualDOM
 
-![image](yadi.sk/i/CC63YHO4NeoyrQ)
+![image](https://2.downloader.disk.yandex.ru/preview/5aa89dc6bf4443cb11dfe0c940a815231ba99698ec70551527bed1fbb8858455/inf/pr-T82kzDj9pNoKeEctMR8ErQIAKdH0k-e4wSMz3ZF26-AzBoUBHEVSGvx9puZj8XOxGlNz9LOaqkI4VmOJWww%3D%3D?uid=603034236&filename=2020-07-17_22-55-05.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=603034236&tknv=v2&size=1903x931)
 
 ```JSX
 document.getElementById, addEventListener //нельзя
@@ -55,6 +55,6 @@ let printText = () => {
 
 По этой ссылке мы все равно получаем доступ к DOM элементу(хоть только и для чтения), а т.к. мы используем React то нам нужно обращаться к VirtualDOM
 
-![image](yadi.sk/i/CC63YHO4NeoyrQ)
+![image](https://2.downloader.disk.yandex.ru/preview/5aa89dc6bf4443cb11dfe0c940a815231ba99698ec70551527bed1fbb8858455/inf/pr-T82kzDj9pNoKeEctMR8ErQIAKdH0k-e4wSMz3ZF26-AzBoUBHEVSGvx9puZj8XOxGlNz9LOaqkI4VmOJWww%3D%3D?uid=603034236&filename=2020-07-17_22-55-05.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=603034236&tknv=v2&size=1903x931)
 
 
