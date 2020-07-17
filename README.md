@@ -5,7 +5,7 @@ My own and awful conspect on react. Do not read this if you want to keep your me
 
 в React нельзя напрямую обращаться к DOM, вешать события и тд. Для этого есть VirtualDOM
 
-![image](https://yadi.sk/i/CC63YHO4NeoyrQ)
+![image](//yadi.sk/i/CC63YHO4NeoyrQ)
 
 ```JSX
 document.getElementById, addEventListener //нельзя
@@ -55,6 +55,6 @@ let printText = () => {
 
 По этой ссылке мы все равно получаем доступ к DOM элементу(хоть только и для чтения), а т.к. мы используем React то нам нужно обращаться к VirtualDOM
 
-![image](https://yadi.sk/i/CC63YHO4NeoyrQ)
+![image](//yadi.sk/i/CC63YHO4NeoyrQ)
 
 
