@@ -61,3 +61,54 @@ let printText = () => {
 По этой ссылке мы все равно получаем доступ к DOM элементу(хоть только и для чтения), а т.к. мы используем React то нам нужно обращаться к VirtualDOM
 
 ![image](./imgs/dom.png)
+
+
+## Изменения и ререндер
+
+Что бы добавлять изменения произошедшие на странице в разметку(например добавление нового поста, или сообщения) нам нужно сначала добавить эти изменения в место хранения наших данных, BLL(Bussines logic layaer)
+
+Для этого там нужно хранить функцию которая будет добавлять поступившие данные в уже имющиеся.
+```javascript
+export let addPost = (postMessage) => {
+  let post = {
+    id: 5,
+    text: postMessage,
+    value: 2
+  };
+
+  state.profilePage.postsData.push(post) // добавляем объект в state 
+}
+```
+Создаем переменную для хранения ссылки на элемент, данные которого будем добавлять. Объявляем колбэк функцию, которая будет вызывать нашу функцию добавляющую объект в state.
+```javascript 
+let newPost = React.createRef();
+
+  let printPost = () => {
+    let post = newPost.current.value;
+    props.addPost(post);
+  }
+```
+Вызываем колбэк по клику на кнопку.
+```html
+<textarea ref={newPost}></textarea>
+        <button onClick={ printPost } className={classes.button}> Add post</button>
+```
+
+Но тут у нас может возникать проблема
+В state уже будут новые данные, но в разметке они не отобразятся.
+Все дело в рендере
+```JSX  
+ReactDOM.render(
+  <React.StrictMode>
+    <App state={state} addPost={addPost}/>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+Приложение у нас рендерится единожды, с имеющимеся на этот момент данными в ```state```, что бы передать внутрь приложения через ```props``` новый ```state``` нам нужно заного вызвать рендер всего приложения.
+
+Так же данные могут обновляться при перекличение по `<NavLink>`.
+
+У ``` <Route />``` есть атрибут: ```render={() => <Component />}```
+
+Когда route видит совпадение путей в адресной строке, он заного рендерит компонент с новым ```state```.
