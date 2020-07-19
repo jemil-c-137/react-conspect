@@ -295,9 +295,82 @@ export let subscribe = (observer) => {
 
 ![image](./imgs/obserb.png)
 
+# 36 про ООП поверхностно
+
+Инкапсуляция - скорытие деталей от внешнеего мира
+![image](./imgs/oop.png)
+Объект store с методами, геттерами сеттерами
+методы инкапсулированы
+
+![image](./imgs/store-state.png)
+Пример использования объекта store.
 Есть несколько реазилаций стейт менеджмента
 
 ![image](./imgs/flux.png)
+
+# 38 dispatch
+
+Мы организовали state managment через файл `store.js` в котором глобальный объект `store`
+В нем хранятся методы и данные которые мы используем.
+Этих методов может быть много, у нас уже есть:
+
+```javascript
+addPost()
+addMessage()
+getState()
+updateNewPostText()
+и тд...
+```
+
+Что бы их использовать нам приходится всех их прокидывать через пропсы
+![image](./imgs/propsi.png) мы будем использовать один метод `dispatch()`
+Он будет вызываться когда нам нужно будет что-то выполнить в компоненте
+
+```javascript
+dispatch () {
+
+}
+```
+
+Но как он будет узнавать что именно мы хотим сделать, для этого аргументом у этого метода будет `объект - action` и
+этот объект будет описывать какое действие метод должен совершить. Так же у этого объекта должен быть обязательно свойство `type` с текстовым значением, в котором будет записано действие которое он должен совершить, записывать это действие надо в верхнем регистре
+Например наш метод `addPost()`
+
+```javascript
+  { //action
+    type: "ADD-POST",
+}
+
+```
+
+```javascript
+dispatch (action) {
+
+}
+```
+
+Теперь добавим действия которые должен будет выполнять этот метод
+
+```javascript
+dispatch (action) {
+  if(action.type === 'ADD-POST') {
+    //наш метод addPost
+      let newPost = {
+      id: 5,
+      text: this._state.profilePage.newPostText
+      value: 2
+    }
+  this._state.profilePage.postsData.push(newPost)
+  this._callSubscriber(this._state)
+  } else if (action.type === "updateNewAreaText") {
+    // Мы добавили и другой наш метод
+    this._state.profilePage.newAreaText = action.newSymbol;
+    this._callSubscriber(this._state)
+  }
+}
+```
+
+Кроме `type` иногда нам придется добавлять и другие значения, как во втором случае `newSymbol == символы которые мы вводили в поле ввода`
 
 # **НУЖНО РАСПИСАТЬ:**
 
@@ -312,3 +385,4 @@ export let subscribe = (observer) => {
 6. Route
 7. UI - BLL(React Redux relativies)
 8. Паттерн Observer
+9. bind / Контекст вызова
