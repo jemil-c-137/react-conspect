@@ -711,3 +711,4 @@ componentDidUpdate()
 9. bind / Контекст вызова
 10. Чистая функция / Детерменированость
 11. Spread / Деструктуризация / Тернарные / Do while / for in
+12. Сompose / HOC / THUNK / Async in React/Redux
