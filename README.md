@@ -1,6 +1,7 @@
-# react-conspect
+# React-conspect
 
-My own and awful conspect on react. Do not read this if you want to keep your mental health safe.
+## My conspect on react learning course by "it-kamasutra". 
+## **Do not read this if you want to keep your mental health safe ☠️🚑**
 
 ![image](./imgs/tree.png)
 
@@ -815,5 +816,5 @@ const MessageForm = (props) => {
 9. bind / Контекст вызова
 10. Чистая функция / Детерменированость
 11. Spread / Деструктуризация / Тернарные / Do while / for in
-12. псевдоложь, псевдоистина
-13. query and URI parameters in ajax
+12. Сompose / HOC / THUNK / Async in React/Redux
+
